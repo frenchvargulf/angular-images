@@ -89,12 +89,10 @@ export class AppComponent {
     const errors = [];
     let files = Array.from(e.target.files)
     files = files.filter( file => {
-      // @ts-ignore 
       if (file.size > 1000000) {
         errors.push('File is too large');
         return;
       }
-      // @ts-ignore
       if(file.type !== "image/jpeg"){
         errors.push('Please upload JPEG image');
         return;
