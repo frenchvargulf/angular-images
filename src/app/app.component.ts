@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CustomImage, theme } from './models/index';
 import exifr from 'exifr';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { faTrash, faImages, faUpload, faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-root',
