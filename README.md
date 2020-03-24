@@ -4,7 +4,7 @@ Angular Exif Images Uploader
 This app's main goal is to upload pictures with GPS Data in order to show them on a map. 
 
 # Live Version
-[Demo](http://flaky-sink.surge.sh/) 
+[Demo](http://observant-bed.surge.sh/) 
 
 # Tech Stack 
 
