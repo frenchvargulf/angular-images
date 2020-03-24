@@ -19,7 +19,7 @@ export class AppComponent {
   errors: Array<string> = [];
   // Map Variables
   styles = theme;
-  zoom: number = 12;
+  zoom: number = 15;
   lng = -6.17458380;
   lat = 57.50690079;
   markers = [];
@@ -51,15 +51,15 @@ export class AppComponent {
   async loaded(e, image) {
     let gps = await exifr.gps(e.target.src);
     if( gps ) {
-        let {latitude, longitude} = gps;
-        image = {
-          ...image, 
-          lat: latitude, 
-          lng: longitude
-        }
-        this.lat = latitude;
-        this.lng = longitude;
-        this.markers.push(image); 
+      let {latitude, longitude} = gps;
+      image = {
+        ...image, 
+        lat: latitude, 
+        lng: longitude
+      }
+      this.lat = latitude;
+      this.lng = longitude;
+      this.markers.push(image); 
     } else {
       this.errors.push('Please upload image with GPS data.');
     };
@@ -92,15 +92,14 @@ export class AppComponent {
       if (file.size > 1000000) {
         errors.push('File is too large');
         return;
-      }
-      if(file.type !== "image/jpeg"){
+      } else if (file.type !== "image/jpeg"){
         errors.push('Please upload JPEG image');
         return;
-      } 
-      this.getBase64File(file);
+      } else {
+        this.getBase64File(file);
+      }
     })  
     this.errors = errors;
   };
-
 
 }

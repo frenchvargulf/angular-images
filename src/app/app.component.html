@@ -1,6 +1,6 @@
 <div class="main-page">
   <mat-toolbar class="toolbar">
-    <h1>Angular Exif</h1>
+    <h1><a href="/" class="link">Angular Exif</a></h1>
     <fa-icon [icon]="faImages" class="icon drawer-icon" (click)="drawer.toggle()"></fa-icon>
   </mat-toolbar>
   <mat-drawer-container class="page" autosize>
@@ -30,24 +30,24 @@
       </div>
    
       <mat-list cdkDropList class="images-list" (cdkDropListDropped)="drop($event)">
-        <mat-card *ngFor="let url of images" class="photo-card" cdkDrag>
+        <mat-card *ngFor="let img of images" class="photo-card" cdkDrag>
           <mat-card-header>
-              <img mat-card-avatar [src]="url.base64" (load)="loaded($event, url)"> 
-              <mat-card-title><span class="header">Name </span><span class="name">{{url.file.name}}</span></mat-card-title>
-              <mat-card-subtitle><span class="header">Type </span>{{url.file.type}}</mat-card-subtitle>
+              <img mat-card-avatar [src]="img.base64" (load)="loaded($event, img)"> 
+              <mat-card-title><span class="header">Name </span><span class="name">{{img.file.name}}</span></mat-card-title>
+              <mat-card-subtitle><span class="header">Type </span>{{img.file.type}}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <div><span class="header">Size </span>{{url.file.size}}</div>
+            <div><span class="header">Size </span>{{img.file.size}}</div>
             <div *ngFor="let m of markers">
-              <div *ngIf="m.base64===url.base64"><span class="header">Lat </span>{{m.lat}}</div>
-              <div *ngIf="m.base64===url.base64"><span class="header">Lng </span>{{m.lng}}</div>
+              <div *ngIf="m.base64===img.base64"><span class="header">Lat </span>{{m.lat}}</div>
+              <div *ngIf="m.base64===img.base64"><span class="header">Lng </span>{{m.lng}}</div>
             </div>
           </mat-card-content>
           <mat-card-actions>
             <div class="actions-container">
               <div class="header">Actions</div>
-              <fa-icon [icon]="faMapMarkedAlt" class="icon action-icon" (click)="moveToBounds(url)"></fa-icon>
-              <fa-icon [icon]="faTrash" class="icon action-icon" (click)="deleteFile(url)"></fa-icon>
+              <fa-icon [icon]="faMapMarkedAlt" class="icon action-icon" (click)="moveToBounds(img)"></fa-icon>
+              <fa-icon [icon]="faTrash" class="icon action-icon" (click)="deleteFile(img)"></fa-icon>
             </div>
           </mat-card-actions>
         </mat-card>
@@ -56,8 +56,9 @@
 
     <div class="sidenav-content">
       <agm-map class="agm-map" [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="zoom">
-        <agm-marker *ngFor="let m of markers" [label]="m.file.name.charAt(0)" [latitude]="m.lat" [longitude]="m.lng" >
+        <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" >
           <agm-info-window #infowindow>
+            <mat-card-title><span class="header">Name </span><span class="name">{{m.file.name}}</span></mat-card-title>
             <img [src]="m.base64"> 
           </agm-info-window>
         </agm-marker>

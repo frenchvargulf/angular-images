@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 /* Override material styles */
 .mat-drawer-inner-container {
-  max-height: 90vh !important;
   overflow: visible !important;
 }
 
@@ -24,4 +24,19 @@
 .mat-drawer::-webkit-scrollbar-thumb {
   height: 6px;
   background-color: rgb(142, 195, 185, 0.8);
+}
+
+/* Mat Card */
+.mat-card {
+  color: #ffffff;
+}
+
+.mat-card-subtitle {
+  color: rgba(255,255,255,.54);
+}
+
+.mat-card-header .mat-card-title {
+  font-size: 15px;
+  max-width: 180px;
+  overflow: hidden;
 }
