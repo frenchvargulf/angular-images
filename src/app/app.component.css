@@ -1,0 +1,101 @@
+/* Layout */
+.main-page {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: rgb(14, 22, 38);
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+.link, .icon {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  color: #ffffff;
+}
+
+.drawer-icon {
+  font-size: 1.5em;
+}
+
+/* Sidenav */
+.sidenav {
+  padding: 20px;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(14, 22, 38);
+  color: #ffffff;
+}
+
+.sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+/* Map */
+.agm-map {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* File Uploader */
+.error {
+  color: rgb(255, 109, 138);
+}
+
+input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.file-label {
+  margin-left: 5px;
+  font-size: 1em;
+}
+
+.header {
+  font-weight: 700;
+}
+
+/* Photo Card */
+.photo-card { 
+  position: relative;
+  background: rgb(142, 195, 185, 0.8);
+  margin: 10px 0;
+}
+
+.photo-card img {
+  margin: auto;
+}
+
+.title {
+  font-weight: 900;
+} 
+
+.actions-container {
+  padding: 0 0 0 5px;
+}
+
+.action-icon {
+  margin-right: 5px;
+}
